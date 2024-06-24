@@ -1,2 +1,2 @@
-# logica-de-programacao-e-algoritmos-com-javascript
+# Exercícios do livro: Lógica de Programação e Algoritmos com JavaScript, de Edécio Fernando Lepsen
  

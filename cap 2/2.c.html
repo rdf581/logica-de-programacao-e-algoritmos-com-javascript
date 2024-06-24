@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supermercado JS</title>
+</head>
+<body>
+    <!--Para aumentar suas vendas no setor de higiene, cada etiqueta de produto deve exibir uma mensagem anunciando 50% de desconto (para um item) na compra de três unidades do produto.
+    Elaborar um programa que leia descrição e preço de um produto. Após, apresente as mensagens indicando a promoção.-->
+    <h1>Supermercado JS</h1>
+    <form>
+        <p>Produto: <input type="text" id="inProduto" name=""></p>
+        <p>Preço R$: <input type="text" id="inPreco" name=""></p>
+        <input type="submit" value="Ver Promoção">
+    </form>
+    <h2 id="resp1"></h2>
+    <h2 id="resp2"></h2>
+</body>
+    <script>
+        const frm = document.querySelector("form")
+        const resp1 = document.getElementById("resp1")
+        const resp2 = document.getElementById("resp2")
+
+        frm.addEventListener("submit", (e) =>{
+            const produto = frm.inProduto.value
+            const preco = Number(frm.inPreco.value)
+            const precoTotal = preco + preco + (preco / 2)
+
+        resp1.innerHTML = `${produto} - Promoção: Leve 3 por R$: ${precoTotal.toFixed(2)}`
+        resp2.innerHTML = `O 3° produto custa apenas: ${(preco / 2).toFixed(2)}`
+
+        e.preventDefault()
+        })
+    </script>
+</html>
