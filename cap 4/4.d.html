@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triângulo</title>
+</head>
+<body>
+    <!--Elaborar um programa que leia três lados e verifique se eles podem ou não formar um triângulo.
+    Para formar um triângulo, um dos lados não pode ser maior que a soma dos outros dois.
+    Caso possam formar um triângulo, exiba também qual o tipo do triângulo:
+    Equilátero (3 lados iguais),
+    Isóceles (2 lados iguais) e
+    Escaleno (3 lados diferentes)-->
+    
+    <h1>Programa Lados de um Triângulo</h1>
+    <form action="">
+        <p>Lado A: 
+            <input type="text" name="ladoA" id="ladoA">
+        </p>
+        <p>Lado B: 
+            <input type="text" name="ladoB" id="ladoB">
+        </p>
+        <p>Lado C: 
+            <input type="text" name="ladoC" id="ladoC">
+        </p>
+        <input type="submit" value="Verificar Lados">
+    </form>
+    <h2 id="resp1"></h2>
+    <h2 id="resp2"></h2>
+    <script>
+        const frm = document.querySelector("form");
+        const resp1 = document.getElementById("resp1");
+        const resp2 = document.getElementById("resp2");
+
+        frm.addEventListener("submit", (e) =>{
+            e.preventDefault();
+
+            const ladoA = Number(frm.ladoA.value);
+            const ladoB = Number(frm.ladoB.value);
+            const ladoC = Number(frm.ladoC.value);
+
+            if(ladoA + ladoB <= ladoC || ladoB + ladoC <= ladoA || ladoA + ladoC <= ladoB){
+                resp1.innerHTML = "Esses lados não podem formar um triângulo.";
+                resp2.innerHTML = "";
+            }else{
+                resp1.innerHTML = "Esses lados podem formar um triângulo.";
+            if(ladoA === ladoB && ladoB === ladoC){
+                    resp2.innerHTML = "É um triângulo equilátero.";
+            } else if(ladoA === ladoB || ladoA === ladoC || ladoB === ladoC){
+                resp2.innerHTML = "É um triângulo isósceles.";
+            } else{
+                resp2.innerHTML = "É um triângulo escaleno.";
+            }}});
+    </script>
+</body>
+</html>

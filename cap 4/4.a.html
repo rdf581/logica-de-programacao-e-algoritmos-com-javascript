@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Par ou Ímpar</title>
+</head>
+<body>
+    <!--Elaborar um programa que leia um número.
+    Informe se ele é par ou ímpar.-->
+
+    <h1>Programa Par ou Ímpar</h1>
+    <form>
+        <p>Número
+            <input type="number" name="" id="inNumber">
+        </p>
+        <input type="submit" value="Verificar se é Par ou Ímpar">
+    </form>
+    <h2 id="resp"></h2>   
+</body>
+    <script>
+        const frm = document.querySelector("form");
+        const resp = document.getElementById("resp");
+
+        frm.addEventListener("submit", (e) =>{
+        e.preventDefault();
+        
+            const number = Number(frm.inNumber.value)
+            if(number % 2 == 0){
+                resp.innerHTML = `${number} é par`;
+            }
+            else{
+                resp.innerHTML = `${number} é ímpar`;
+            }})
+    </script>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parquímetro</title>
+</head>
+<body>
+    <!--Elaborar um programa para simular um parquímetro, o qual leia o valor de moedas depositado em um terminal de estacionamento rotativo.
+    O programa deve informar o tempo de permanência do veículo no local e o troco (se existir).
+    Se o valor for inferior ao tempo mínimo, exiba a mensagem: "Valor Insuficiente".
+    Considerar os valores/tempos:
+    Valor R$         Tempo(min)
+    1,00                 30
+    1,75                 60
+    3,00                 120
+    -->
+    
+    <h1>Programa Parquímetro</h1>
+    <form>
+        <p>Valor R$:
+            <input type="text" name="" id="valorDepositado" required>
+        </p>
+        <input type="submit" value="Confirmar Depósito">
+    </form>
+    <h2 id="resp1"></h2>
+    <h3 id="resp2"></h3>
+
+    <script>
+        const frm = document.querySelector("form");
+        const resp1 = document.getElementById("resp1");
+        const resp2 = document.getElementById("resp2");
+
+        frm.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const valorDepositado = parseFloat(frm.valorDepositado.value);
+            let valorCobrado;
+
+            if (valorDepositado >= 3.00) {
+                valorCobrado = 3.00;
+                resp1.innerHTML = "120 min";
+            } else if (valorDepositado >= 1.75) {
+                valorCobrado = 1.75;
+                resp1.innerHTML = "60 min";
+            } else if (valorDepositado >= 1.00) {
+                valorCobrado = 1.00;
+                resp1.innerHTML = "30 min";
+            } else {
+                resp1.innerHTML = "Valor Insuficiente";
+                resp2.innerHTML = ""
+                return;
+            }
+            const troco = valorDepositado - valorCobrado;
+            resp2.innerHTML = `Troco: R$ ${troco.toFixed(2)}`;
+        });
+    </script>
+</body>
+</html>

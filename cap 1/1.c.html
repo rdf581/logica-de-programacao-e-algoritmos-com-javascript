@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,11 +18,10 @@
     Ou 3x de R$: 20.00 
     */
 
-    const valorProduto = parseFloat(prompt("Insira o valor do produto:"))
-    const valorAvista = valorProduto - (valorProduto * 0.10)   
-    const valorParcelado = valorProduto / 3
+    const valorProduto = parseFloat(prompt("Insira o valor do produto:"));
+    const valorAvista = valorProduto - (valorProduto * 0.10);
+    const valorParcelado = valorProduto / 3;
     
-    alert(`Preço R$: ${valorProduto.toFixed(2)}\nÀ Vista R$: ${valorAvista.toFixed(2)}\nOu 3x de R$: ${valorParcelado.toFixed(2)}`)
-
+    alert(`Preço R$: ${valorProduto.toFixed(2)}\nÀ Vista R$: ${valorAvista.toFixed(2)}\nOu 3x de R$: ${valorParcelado.toFixed(2)}`);
 </script>
 </html>

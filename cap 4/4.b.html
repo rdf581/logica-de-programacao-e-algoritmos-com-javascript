@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifica a Velocidade</title>
+</head>
+<body>
+    <!--Elaborar um programa que leia a velocidade permitida em uma estrada e a velocidade de um condutor.
+    Se a velocidade for inferior ou igual à permitida, exiba "Sem Multa".
+    Se a velocidade for de até 20% maior que a permitida, exiba "Multa Leve".
+    Se a velocidade for superior a 20% da velocidade permitida, exiba "Multa Grave"-->
+
+    <h1>Programa Verifica a Velocidade</h1>
+    <form>
+        <p>Velocidade Permitida
+            <input type="text" name="" id="velPermitida">
+        </p>
+        <p>Velocidade do Condutor
+            <input type="text" name="" id="velCondutor">
+        </p>
+        <input type="submit" value="Verificar Velocidade">
+        <h2 id="resp"></h2>
+    </form>
+</body>
+    <script>
+        const frm = document.querySelector("form");
+        const resp = document.getElementById("resp");
+
+        frm.addEventListener("submit", (e) =>{
+            e.preventDefault();
+            
+            const velPermitida = Number(frm.velPermitida.value);
+            const velCondutor = Number(frm.velCondutor.value);
+
+            if(velCondutor <= velPermitida){
+                resp.innerHTML = "Sem multa";
+                resp.style.color = "green";
+            }else if(velCondutor / velPermitida <= 1.2){
+                resp.innerHTML = "Multa Leve";
+                resp.style.color = "orange";
+            }else{
+                resp.innerHTML = "Multa Grave";
+                resp.style.color = "red";
+            }});
+    </script>
+</html>
